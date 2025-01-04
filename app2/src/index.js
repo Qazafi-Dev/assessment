@@ -2,16 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import App from "./App";
+
+const RenderApp = (props) => {
+  console.log(props, "kokokokok");
+  return (
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+};
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
-  rootComponent: App,
+  rootComponent: RenderApp,
   errorBoundary(err, info, props) {
-    return <div>Error occurred while loading this app.</div>;
+    // Customize the root error boundary for your microfrontend here
+    return <div>Something went wrong!</div>;
   },
 });
 
-// Export Single-SPA lifecycle functions
 export const { bootstrap, mount, unmount } = lifecycles;
-
-ReactDOM.render(<App />, document.getElementById("root"));

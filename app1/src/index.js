@@ -8,12 +8,9 @@ const lifecycles = singleSpaReact({
   ReactDOM,
   rootComponent: App,
   errorBoundary(err, info, props) {
-    return <div>Error occurred while loading this app.</div>;
+    // Customize the root error boundary for your microfrontend here
+    return <div>Something went wrong!</div>;
   },
 });
 
-// Export Single-SPA lifecycle functions
 export const { bootstrap, mount, unmount } = lifecycles;
-if (!window.singleSpaNavigate) {
-  ReactDOM.render(<App />, document.getElementById("root"));
-}

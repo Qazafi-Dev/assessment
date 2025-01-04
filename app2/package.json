@@ -1,8 +1,10 @@
 {
-  "name": "app2",
+  "name": "@personal/app2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/app2",
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "cra-template": "1.2.0",
     "craco-plugin-single-spa-application": "^2.0.1",
     "react": "^19.0.0",
@@ -12,9 +14,9 @@
     "webpack-config-single-spa-react": "^7.0.0"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build && mv ./build/static/js/*.js ./build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

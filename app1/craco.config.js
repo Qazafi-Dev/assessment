@@ -1,17 +1,15 @@
 const { merge } = require("webpack-merge");
-const singleSpaDefaults = require("craco-config-single-spa-react");
+const singleSpaDefaults = require("webpack-config-single-spa-react");
 
 module.exports = {
-  webpack: {
-    configure: (webpackConfig, { paths }) => {
-      const singleSpaConfig = singleSpaDefaults({
-        orgName: "personal", // Replace with your org name
-        projectName: "app1", // Replace with App2 for App2 directory
-      });
+  webpack: (config) => {
+    const singleSpaConfig = singleSpaDefaults({
+      orgName: "personal",
+      projectName: "app1", // Replace with "app2" for the second app
+      webpackConfigEnv: {},
+      argv: {},
+    });
 
-      return merge(singleSpaConfig, webpackConfig, {
-        // Optional: Add custom webpack configurations here
-      });
-    },
+    return merge(singleSpaConfig, config);
   },
 };
